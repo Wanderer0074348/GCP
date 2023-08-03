@@ -1,0 +1,7 @@
+{
+    "credentials":{
+        "project_id": "quiet-axon-394009",
+        "dataset_id": "testing_data_set",
+        "table_id": "international_tourist_trips"
+    }
+}

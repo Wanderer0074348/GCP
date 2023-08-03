@@ -3,21 +3,23 @@ import sys
 import os
 sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
 
+#adding data path to sys.path
+sys.path.append(os.path.join(os.path.dirname(__file__), 'data'))
+                             
 #importing src modules
+#importing data modules
 from src.PullData import PullData
-
-
-
-
+from src.Creds import Creds
 
 if __name__ == '__main__':
 #creating an instance of PullData class
-    project_id = input('Enter project id: ')
-    dataset_id = input('Enter dataset id: ')
-    table_id = input('Enter table id: ')
+    creds = Creds()
+    project_id,dataset_id,table_id = creds.retrieve_creds()
     pull_data = PullData(project_id = project_id,dataset_id = dataset_id,table_id = table_id)
-#pulling data from bigquery
+#pulling data from bigquery 
     df = pull_data.pull_data()
+#pulling queried data from bigquery
+    # df = pull_data.pull_query_data(query = pull_data.query())
 #printing out the head of the dataframe
     pull_data.head(df)
 #printing out the tail of the dataframe
