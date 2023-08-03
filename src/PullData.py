@@ -25,28 +25,30 @@ class PullData():
     def tail(self,df,n=5):
         #printing the tail of the dataframe
         print(df.tail(n))
-    def info(self,df):
-        #printing the info of the dataframe
-        print(df.info())
-    def describe(self,df):
-        #printing the describe of the dataframe
-        print(df.describe())
-    def shape(self,df):
-        #printing the shape of the dataframe
-        print(df.shape)
-    def columns(self,df):
-        #printing the columns of the dataframe
-        print(df.columns)
-    def index(self,df):
-        #printing the index of the dataframe
-        print(df.index)
-    def dtypes(self,df):
-        #printing the dtypes of the dataframe
-        print(df.dtypes)
     def query(self):
         query = input('Enter query: ')
         return query
     def pull_query_data(self,query):
         df = pd.read_gbq(query=query,project_id=self.project_id)
+        return df
+    def read_csv(self,csv_path:str):
+        #reading csv file
+        df = pd.read_csv(csv_path)
+        return df
+    def read_excel(self,excel_path:str):
+        #reading excel file
+        df = pd.read_excel(excel_path)
+        return df
+    def read_json(self,json_path:str):
+        #reading json file
+        df = pd.read_json(json_path)
+        return df
+    def read_html(self,html_path:str):
+        #reading html file
+        df = pd.read_html(html_path)
+        return df
+    def read_sql(self,sql_path:str):
+        #reading sql file
+        df = pd.read_sql(sql_path)
         return df
 
