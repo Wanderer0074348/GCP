@@ -6,13 +6,16 @@ sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
 #importing src modules
 from src.PullData import PullData
 
-#creating an instance of PullData class
-pull_data = PullData(project_id='quiet-axon-394009',dataset_id='testing_data_set',table_id='international_tourist_trips')
 
 
 
 
 if __name__ == '__main__':
+#creating an instance of PullData class
+    project_id = input('Enter project id: ')
+    dataset_id = input('Enter dataset id: ')
+    table_id = input('Enter table id: ')
+    pull_data = PullData(project_id = project_id,dataset_id = dataset_id,table_id = table_id)
 #pulling data from bigquery
     df = pull_data.pull_data()
 #printing out the head of the dataframe
